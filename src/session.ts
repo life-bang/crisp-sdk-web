@@ -33,7 +33,7 @@ class CrispSession {
   }
 
   setData(data: object) {
-    const _payload = [];
+    const _payload : any[] = [];
 
     Object.entries(data).forEach(item => {
       if (this.isValidDataValue(item[0])) {
@@ -43,7 +43,7 @@ class CrispSession {
 
     this.parent.createSingletonIfNecessary();
 
-    $crisp.push(["set", "session:data", [data]]);
+    $crisp.push(["set", "session:data", [_payload]]);
   }
 
   pushEvent(name: string, data: object = {}, color: EventsColors = EventsColors.Blue) {
